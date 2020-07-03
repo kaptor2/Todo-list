@@ -1,9 +1,9 @@
 import React from "react";
 
-export const TodoListItem = ({ text, important }) => {
+export const TodoListItem = ({ label, important }) => {
   const style = {
-    color: important ? 'Blue' : 'black'
+    color: important ? "Blue" : "black",
   };
 
-  return <span style={style}>{text}</span>;
+  return <span style={ style }>{ label }</span>;
 };
