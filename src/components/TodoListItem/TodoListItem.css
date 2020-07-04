@@ -19,6 +19,7 @@
     grid-area: 1 / 1 / 2 / 2;
     margin: auto 0px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .TodoListItem-container__btns {
@@ -26,4 +27,12 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.important {
+    color: #E94D3E;
 }
