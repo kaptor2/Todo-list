@@ -1,0 +1,22 @@
+@media (min-width: 900px) {
+    .main-conteiner .main-form {
+        width: 450px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        border-radius: 5px;
+        
+    }
+    
+    .main-conteiner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url(https://i.pinimg.com/originals/9d/4d/07/9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg);
+        background-size: cover;
+    }
+}
+
+.main-form__content {
+    padding: 24px;
+    background-color: white;
+}

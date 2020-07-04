@@ -1,19 +1,19 @@
 import React from "react";
 import { TodoListItem } from "../TodoListItem/TodoListItem";
-import  style  from "./TodoList.module.css";
+import "./TodoList.css";
 
 export const TodoList = ({ todoDate }) => {
   const elements = todoDate.map((item) => {
     const { id, ...itemProps } = item;
     return (
-      <li key={id} className={ `list-group-item ${style.listGroupItem}` }>
+      <li key={id} className="list-group-item">
         <TodoListItem {...itemProps} />
       </li>
     );
   });
 
   return (
-  <ul className = { `list-group ${ style.todoList }` } >
+  <ul className = "TodoList_container list-group" >
     {elements} 
   </ul>);
 };
