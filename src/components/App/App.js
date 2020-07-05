@@ -1,25 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import { AppHeader } from "../AppHeader/AppHeader";
 import { SearchPanel } from "../SearchPanel/SearchPanel";
 import { TodoList } from "../TodoList/TodoList";
 import "./App.css";
 
-export const App = () => {
-  const todoDate = [
-    { id: 1, label: "Drink Coffee", important: false },
-    { id: 2, label: "Make Awesome App", important: true },
-    { id: 3, label: "Have a lunch", important: false },
-  ];
+export class App extends Component {
+  state = {
+    todoData: [
+      { id: 2, label: "Drink Coffee", important: false },
+      { id: 1, label: "Make Awesome App", important: false },
+      { id: 3, label: "Have a lunch", important: false },
+    ],
+  };
 
-  return (
-    <div className = "main-conteiner">
-      <div className="main-form" >
-        <AppHeader />
-        <div className="main-form__content">
-          <SearchPanel />
-          <TodoList todoDate={todoDate} />
+  onDeleted = (id) => {
+    this.setState(({ todoData }) => {
+
+      const index = todoData.findIndex((el) => el.id === id);
+      let result = [...todoData];
+      result.splice(index, 1);
+
+      return {
+        todoData: result,
+      };
+
+    });
+  };
+
+  render() {
+    const { todoData } = this.state;
+
+    return (
+      <div className="main-conteiner">
+        <div className="main-form">
+          <AppHeader />
+          <div className="main-form__content">
+            <SearchPanel />
+            <TodoList todoData={todoData} onDeleted={this.onDeleted} />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
