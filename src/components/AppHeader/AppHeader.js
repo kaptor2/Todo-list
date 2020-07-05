@@ -9,11 +9,7 @@ export class AppHeader extends Component {
     let noDone = 0;
     
     for (let el of this.props.todoData) {
-      if (el.done){
-        done += 1;
-      } else {
-        noDone += 1;
-      }
+      el.done ? done += 1 : noDone += 1;
     }
 
     return [done, noDone];
@@ -31,19 +27,3 @@ export class AppHeader extends Component {
     );
   }
 }
-
-  /*let count = 0;
-  let done = 0;
-
-  const elements = todoData.map((item) => {
-    if (item.important) {
-      count += 1;
-    } 
-
-    if (item.Done) {
-      count += 1;
-    } 
-  }); */
-
-
-
