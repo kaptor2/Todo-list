@@ -2,37 +2,26 @@ import React, { Component } from "react";
 import "./TodoListItem.css";
 
 export class TodoListItem extends Component {
-  state = {
-    done: false,
-    important: this.props.important,
-  };
-
-  onLabelClick = () => {
-    this.setState( ({done}) => {
-      return {
-        done: !done,
-      };
-    });
-  };
-  
-  onSuccessButtonClick = () => {
-    this.setState(( {important} ) => {
-      return {
-        important: !important,
-      };
-    });
-  };
 
   render() {
-    const { label, onDeleted } = this.props;
-    const { done, important } = this.state;
+
+    const { 
+      label, 
+      onDeleted, 
+      onToggleImportant, 
+      onToggleDone,
+      done,
+      important
+    } = this.props;
+
+
     let spanClassNames = `TodoListItem-container__span 
       ${done && " done"} 
       ${important && " important"}`;
 
     return (
       <div className="TodoListItem-container">
-        <span className={spanClassNames} onClick={this.onLabelClick}>
+        <span className={spanClassNames} onClick={ onToggleDone }>
           {label}
         </span>
         <div className="TodoListItem-container__btns">
@@ -46,7 +35,7 @@ export class TodoListItem extends Component {
           <button
             type="button"
             className="TodoListItem-btn btn btn-success waves-effect"
-            onClick={this.onSuccessButtonClick}
+            onClick={ onToggleImportant }
           >
             <i className="fas fa-exclamation"></i>
           </button>
